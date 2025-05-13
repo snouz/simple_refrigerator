@@ -1,0 +1,14 @@
+{
+  "name": "simple_refrigerator",
+  "title": "Simple Refrigerator",
+  "description": "Freezes food, based on a 2x2 buffer chest",
+  "author": "snouz",
+  "homepage": "https://github.com/snouz/simple_refrigerator",
+  "version": "1.0.0",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base"
+  ],
+  "spoiling_required": true,
+  "space_travel_required": true
+}
