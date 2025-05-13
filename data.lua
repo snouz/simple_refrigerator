@@ -36,10 +36,11 @@ data:extend({
     category = "cryogenics",
     ingredients =
     {
-      {type = "item", name = "refined-concrete", amount = 10},
+      --{type = "item", name = "refined-concrete", amount = 10},
       {type = "fluid", name = "fluoroketone-cold", amount = 50},
-      {type = "item", name = "foundation", amount = 2},
-      {type = "item", name = "quantum-processor", amount = 1},
+      {type = "item", name = "foundation", amount = 5},
+      --{type = "item", name = "quantum-processor", amount = 1},
+      {type = "item", name = "fusion-reactor-equipment", amount = 1},
       {type = "item", name = "buffer-chest", amount = 1},
     },
     results = {{type = "item", name = "simple_refrigerator", amount = 1}},
@@ -68,7 +69,7 @@ data:extend({
         recipe = "simple_refrigerator"
       },
     },
-    prerequisites = {"foundation"},
+    prerequisites = {"foundation", "fusion-reactor-equipment"},
     unit =
     {
       count_formula = "2500",
