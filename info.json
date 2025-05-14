@@ -1,10 +1,10 @@
 {
   "name": "simple_refrigerator",
-  "title": "Simple Refrigerator",
+  "title": "Cryo-chest (simple refrigerator)",
   "description": "A 2x2 buffer chest that slows down spoilage.",
   "author": "snouz",
   "homepage": "https://github.com/snouz/simple_refrigerator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "factorio_version": "2.0",
   "dependencies": [
     "base"

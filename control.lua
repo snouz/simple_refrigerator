@@ -66,10 +66,12 @@ local function check_fridges(recover_number)
       local inv = fridge.get_inventory(defines.inventory.chest)
       
       --local quality = fridge.quality
-      --local quality_multiplier = 1
+      --local quality_multiplier = 0
       --if quality and quality.level and quality.level ~= 0 then
-      --  quality_multiplier = quality_multiplier + (quality.level / (recover_number * 4))
+      --  quality_multiplier = quality_multiplier + (quality.level / 2)
       --end
+
+      --fridge.force.print("quality_multiplier " .. quality_multiplier .. " recover_number " .. recover_number)
       
       
       -- Process each item in the inventory
@@ -80,9 +82,10 @@ local function check_fridges(recover_number)
           -- Extend spoilage time while respecting maximum duration
           local max_spoil_time = game.tick + itemStack.prototype.get_spoil_ticks(itemStack.quality) - 3
           itemStack.spoil_tick = math.min(
-            itemStack.spoil_tick + recover_number, --) * quality_multiplier,
+            itemStack.spoil_tick + recover_number, -- + math.floor((freeze_rates - 1) * quality_multiplier),-- quality_multiplier, --) * quality_multiplier,
             max_spoil_time
           )
+          --fridge.force.print("itemStack.spoil_tick " .. itemStack.spoil_tick .. " | max_spoil_time" .. max_spoil_time)
         end
       end
     else
@@ -93,13 +96,24 @@ local function check_fridges(recover_number)
 end
 
 local function on_tick(event)
-  if freeze_rates == 1 then return end
-  if freeze_rates < 10 then -- avoiding hurt too much of ups
-    if game.tick%(10 * freeze_rates) == 0 then
-      check_fridges((freeze_rates - 1) * 10)
-    end
-  elseif game.tick%freeze_rates == 0 then
-    check_fridges(freeze_rates - 1)
+
+      --local quality = fridge.quality
+      --local quality_multiplier = 1
+      --if quality and quality.level and quality.level ~= 0 then
+      --  quality_multiplier = quality_multiplier + (quality.level / (recover_number * 4))
+      --end
+  if storage.simple_refrigerator ~= {} then
+    --if freeze_rates < 10 then -- avoiding hurt too much of ups
+      if game.tick%(10 * freeze_rates) == 0 then
+        check_fridges((freeze_rates - 1) * 10)
+      end
+    --elseif freeze_rates < 15 then
+    --  if game.tick%(15 * freeze_rates) == 0 then
+    --    check_fridges((freeze_rates - 1) * 15)
+    --  end
+    --elseif game.tick%freeze_rates == 0 then
+    --  check_fridges(freeze_rates - 1)
+    --end
   end
 end
 

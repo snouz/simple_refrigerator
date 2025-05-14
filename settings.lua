@@ -4,7 +4,7 @@ data:extend({
         name = "simple_refrigerator-freeze-rate",
         setting_type = "runtime-global", 
         default_value = 10,
-        minimum_value = 1, 
+        minimum_value = 2, 
         maximum_value = 100,
         order = "c"
     },
