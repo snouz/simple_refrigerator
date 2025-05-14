@@ -141,7 +141,7 @@ data:extend({
     },
     fast_replaceable_group = "simple_refrigerator",
     inventory_size = 24,
-    icon_draw_specification = {scale = 0.7},
+    icon_draw_specification = {scale = 0.8},
     trash_inventory_size = 20,
     logistic_mode = "buffer",
     open_sound = sounds.metallic_chest_open,
