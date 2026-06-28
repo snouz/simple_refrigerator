@@ -33,7 +33,7 @@ data:extend({
     type = "recipe",
     name = "simple_refrigerator",
     energy_required = 30,
-    category = "cryogenics",
+    categories = {"cryogenics"},
     ingredients =
     {
       --{type = "item", name = "refined-concrete", amount = 10},
@@ -146,42 +146,45 @@ data:extend({
     logistic_mode = "buffer",
     open_sound = sounds.metallic_chest_open,
     close_sound = sounds.metallic_chest_close,
-    animation_sound = sounds.logistics_chest_open,
     impact_category = "metal",
-    opened_duration = logistic_chest_opened_duration,
-    animation =
+    robot_door =
     {
-      layers =
+      animation_sound = sounds.logistics_chest_open,
+      opened_duration = logistic_chest_opened_duration,
+      animation =
       {
+        layers =
         {
-          filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-base.png",
-          priority = "extra-high",
-          width = 256,
-          height = 256,
-          repeat_count = 7,
-          shift = util.by_pixel(0, 0),
-          scale = 0.5
-        },
-        {
-          filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-door.png",
-          priority = "extra-high",
-          width = 66,
-          height = 30,
-          frame_count = 7,
-          shift = util.by_pixel(0, -10),
-          scale = 0.5
-        },
-        {
-          filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-shadow.png",
-          priority = "extra-high",
-          width = 256,
-          height = 256,
-          repeat_count = 7,
-          shift = util.by_pixel(0, 0),
-          draw_as_shadow = true,
-          scale = 0.5
+          {
+            filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-base.png",
+            priority = "extra-high",
+            width = 256,
+            height = 256,
+            repeat_count = 7,
+            shift = util.by_pixel(0, 0),
+            scale = 0.5
+          },
+          {
+            filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-door.png",
+            priority = "extra-high",
+            width = 66,
+            height = 30,
+            frame_count = 7,
+            shift = util.by_pixel(0, -10),
+            scale = 0.5
+          },
+          {
+            filename = "__simple_refrigerator__/graphics/entity/simple_refrigerator-shadow.png",
+            priority = "extra-high",
+            width = 256,
+            height = 256,
+            repeat_count = 7,
+            shift = util.by_pixel(0, 0),
+            draw_as_shadow = true,
+            scale = 0.5
+          }
         }
-      }
+      },
     },
     circuit_connector = circuit_connector_definitions["chest"],
     circuit_wire_max_distance = default_circuit_wire_max_distance
